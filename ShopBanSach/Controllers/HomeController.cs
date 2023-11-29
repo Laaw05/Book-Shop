@@ -19,6 +19,8 @@ namespace ShopBanSach.Controllers
             return View(listSp);
         }
 
-       
+       public ActionResult Contact() {
+            return View();  
+        }
     }
 }

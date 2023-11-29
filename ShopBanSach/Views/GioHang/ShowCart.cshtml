@@ -31,17 +31,17 @@
                         <table class="timetable_sub">
                             <thead>
                                 <tr>
-                                    <th>Sản phẩm</th>
-                                    <th>Tên sản phẩm</th>
+                                    <th>Product</th>
+                                    <th>Product Name</th>
                                     <th>Số lượng</th>
-                                    <th>Giá</th>
-                                    <th>Xóa khỏi giỏ hàng</th>
+                                    <th>Price</th>
+                                    <th>Remove</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model.ItemGioHangs)
                                 {
-                                    int total = item.sanPham_shopping.donGia * item.soLuong_shopping;
+                                    int total = (int)item.sanPham_shopping.donGia * item.soLuong_shopping;
                                     Tongtien += total;
                                     <tr class="rem">
                                         <td>
@@ -73,8 +73,8 @@
                             <tfoot>
                                 <tr>
                                     <td colspan="5" style="text-align:right">
-                                    <h5 style="color:red">
-                                        <b>@string.Format("{0:#,##0}", Tongtien) VND</b>
+                                        <h5 style="color:red">
+                                            <b>@string.Format("{0:#,##0}", Tongtien) VND</b>
                                         </h5>
                                     </td>
                                 </tr>

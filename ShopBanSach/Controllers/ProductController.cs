@@ -9,13 +9,13 @@ namespace ShopBanSach.Controllers
     {
         SanPhamModels db = new SanPhamModels();
         LoaiSPModels lspModel = new LoaiSPModels();
-        ThuongHieuModels thModel = new ThuongHieuModels();
+        TacGiaModels thModel = new TacGiaModels();
         // GET: Product
         public ViewResult ProDetail(string id)
         {
-            ThuongHieu th;
+            TacGia th;
             SanPham sp = db.get1sanPham(id);
-            th = thModel.get1TH(sp.maTH);
+            th = thModel.get1TH(sp.maTG);
             ViewBag.TH = th;
             ViewBag.LoaiSP = lspModel.get1LSP(sp.maLoai);
             return View(sp);
@@ -52,9 +52,9 @@ namespace ShopBanSach.Controllers
         }
 
      
-        public ViewResult ProbyTH(string id)
+        public ViewResult ProbyTG(string id)
         {
-            ThuongHieu th;
+            TacGia th;
             SanPham sanPham = new SanPham();
             List<SanPham> listSp;
             if (id == null)
@@ -66,10 +66,10 @@ namespace ShopBanSach.Controllers
             else
             {
                 th = thModel.get1TH(id);
-                listSp = db.getSPbyThuongHieu(id);
-                var tenTH = th.tenTH;
+                listSp = db.getSPbyTacGia(id);
+                var tenTG = th.tenTG;
                 ViewBag.TH = th;
-                ViewBag.tenTH = tenTH;
+                ViewBag.tenTG = tenTG;
             }
             return View(listSp);
         }

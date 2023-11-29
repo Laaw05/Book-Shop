@@ -5,7 +5,7 @@
 @using System.Configuration
 @{ SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["strConnect"].ConnectionString);
     SqlDataAdapter da = new SqlDataAdapter("Select * from LoaiSP", con);
-    SqlDataAdapter daTH = new SqlDataAdapter("Select * from ThuongHieu", con);
+    SqlDataAdapter daTH = new SqlDataAdapter("Select * from TacGia", con);
     DataTable dt = new DataTable();
     DataTable dtTH = new DataTable();
     da.Fill(dt);
@@ -92,8 +92,8 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="/Product/ProbyTH" class="dropdown-toggle"
-                                           data-toggle="dropdown">Thương hiệu sản phẩm</a>
+                                        <a href="/Product/ProbyTG" class="dropdown-toggle"
+                                           data-toggle="dropdown">Tác giả</a>
                                         <ul class="dropdown-menu container-fluid">
                                             <li class="block-container">
 
@@ -101,7 +101,7 @@
                                                     @for (int i = 0; i < dtTH.Rows.Count; i++)
                                                     {
                                                         <li class="link_container">
-                                                            <a href="/Product/ProbyTH/@dtTH.Rows[i][0].ToString()">@dtTH.Rows[i][1].ToString()</a>
+                                                            <a href="/Product/ProbyTG/@dtTH.Rows[i][0].ToString()">@dtTH.Rows[i][1].ToString()</a>
                                                         </li>
                                                     }
                                                 </ul>
@@ -112,7 +112,10 @@
 
                                     <li><a href="#">pages</a></li>
                                     <li><a href="#">blog</a></li>
-                                    <li><a href="#">liên hệ</a></li>
+                                    <li>
+                                        <a href="/Home/Contact">liên hệ</a>
+                                        
+                                    </li>
                                 </ul>
                                 <ul class="navbar_user">
                                     <li>

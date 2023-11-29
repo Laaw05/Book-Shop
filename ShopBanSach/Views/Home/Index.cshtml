@@ -25,7 +25,7 @@
             @{for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     <div class="col-md-4">
-                        <div class="banner_item align-items-center" style="background-image: url(/Content/images/@dt.Rows[i][3].ToString())">
+                        <div class="banner_item mt-4 align-items-center" style="background-image: url(/Content/images/@dt.Rows[i][3].ToString())">
                             <div class="banner_category">
                                 <a href="/Product/ProCata/@dt.Rows[i][0].ToString()">@dt.Rows[i][1].ToString()</a>
                             </div>
@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col text-center">
                 <div class="section_title new_arrivals_title">
-                    <h2>Sản phẩm</h2>
+                    <h2">Sản phẩm</h2>
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@
                             <div class="product product_filter">
                                 <div class="product_image">
                                     <a href="/Product/ProDetail/@item.maSP">
-                                        <img src="~/Content/images/@item.Anh" alt="">
+                                        <img src="~/Content/images/@item.Anh" style="width: 220px; height: 270px;" alt="">
                                     </a>
 
                                 </div>
@@ -111,18 +111,18 @@
                 <div class="product_slider_container">
                     <div class="owl-carousel owl-theme product_slider">
                         @{
-                            int index = 0;
+                            int index = 12;
                         }
                         @foreach (var item in Model)
                         {
-                            if (index < 6)
+                            if (index < 22)
                             {
                                 <div class="owl-item product_slider_item">
                                     <div class="product-item">
                                         <div class="product discount">
                                             <div class="product_image">
                                                 <a href="/Product/ProDetail/@item.maSP">
-                                                    <img src="~/Content/images/@item.Anh" alt="">
+                                                    <img style="width: 220px; height: 350px;" src="~/Content/images/@item.Anh" alt="">
                                                 </a>
 
                                             </div>

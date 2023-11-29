@@ -45,10 +45,10 @@
                 <div class="product_details">
                     <div class="product_details_title">
                         @{
-                            ThuongHieu th = ViewBag.TH as ThuongHieu;
-                            string tenTH = th.tenTH;
+                            TacGia th = ViewBag.TH as TacGia;
+                            string tenTG = th.tenTG;
                         }
-                        <a href="/Product/ProbyTH/@th.maTH"><h4 style="color:lightslategray">@tenTH</h4></a>
+                        <a href="/Product/ProbyTH/@th.maTG"><h4 style="color:lightslategray">@tenTG</h4></a>
                         
                         <h2>@Model.tenSP</h2>
                         <p>@Model.moTa</p>
@@ -131,7 +131,7 @@
                                 </div>
                                 <div class="tab_text_block">
                                     <h4 style="color:lightslategray">Thông tin</h4>
-                                    <h3>@th.tenTH</h3>
+                                    <h3>@th.tenTG</h3>
                                 </div>
                             </div>
                             <div class="col-lg-5 offset-lg-2 desc_col">

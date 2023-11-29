@@ -14,21 +14,18 @@ namespace ShopBanSach.Areas.Admin.Models
         public string maSP { get; set; }
 
         [Column(TypeName = "ntext")]
-        [Required]
         public string tenSP { get; set; }
 
-        [Required]
         [StringLength(5)]
         public string maLoai { get; set; }
 
-        [Required]
         [StringLength(5)]
-        public string maTH { get; set; }
+        public string maTG { get; set; }
 
         [Column(TypeName = "ntext")]
         public string moTa { get; set; }
 
-        public int donGia { get; set; }
+        public int? donGia { get; set; }
 
         public int? soLuong { get; set; }
 
@@ -37,6 +34,6 @@ namespace ShopBanSach.Areas.Admin.Models
 
         public virtual LoaiSP LoaiSP { get; set; }
 
-        public virtual ThuongHieu ThuongHieu { get; set; }
+        public virtual TacGia TacGia { get; set; }
     }
 }

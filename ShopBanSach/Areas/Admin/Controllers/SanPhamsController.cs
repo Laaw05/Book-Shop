@@ -15,12 +15,12 @@ namespace ShopBanSach.Areas.Admin.Controllers
         private DBContext db = new DBContext();
         private LoaiSPModels lspModel = new LoaiSPModels();
         private SanPhamModels spModel = new SanPhamModels();
-        private ThuongHieuModels thModel = new ThuongHieuModels();
+        private TacGiaModels thModel = new TacGiaModels();
 
         // GET: Admin/SanPhams
         public ActionResult Index()
         {
-            var sanPham = db.SanPham.Include(s => s.LoaiSP).Include(s => s.ThuongHieu);
+            var sanPham = db.SanPham.Include(s => s.LoaiSP).Include(s => s.TacGia);
             return View(sanPham.ToList());
         }
 
@@ -43,7 +43,7 @@ namespace ShopBanSach.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.maLoai = new SelectList(db.LoaiSP, "maLoai", "tenLoai");
-            ViewBag.maTH = new SelectList(db.ThuongHieu, "maTH", "tenTH");
+            ViewBag.maTG = new SelectList(db.TacGia, "maTG", "tenTG");
             return View();
         }
 
@@ -52,7 +52,7 @@ namespace ShopBanSach.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "maSP,tenSP,maLoai,maTH,moTa,donGia,soLuong,Anh")] SanPham sanPham)
+        public ActionResult Create([Bind(Include = "maSP,tenSP,maLoai,maTG,moTa,donGia,soLuong,Anh")] SanPham sanPham)
         {
             if (ModelState.IsValid)
             {
@@ -62,7 +62,7 @@ namespace ShopBanSach.Areas.Admin.Controllers
             }
 
             ViewBag.maLoai = new SelectList(db.LoaiSP, "maLoai", "tenLoai", sanPham.maLoai);
-            ViewBag.maTH = new SelectList(db.ThuongHieu, "maTH", "tenTH", sanPham.maTH);
+            ViewBag.maTG = new SelectList(db.TacGia, "maTG", "tenTG", sanPham.maTG);
             return View(sanPham);
         }
 
@@ -79,7 +79,7 @@ namespace ShopBanSach.Areas.Admin.Controllers
                 return HttpNotFound();
             }
             ViewBag.maLoai = new SelectList(db.LoaiSP, "maLoai", "tenLoai", sanPham.maLoai);
-            ViewBag.maTH = new SelectList(db.ThuongHieu, "maTH", "tenTH", sanPham.maTH);
+            ViewBag.maTG = new SelectList(db.TacGia, "maTG", "tenTG", sanPham.maTG);
             return View(sanPham);
         }
 
@@ -88,7 +88,7 @@ namespace ShopBanSach.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "maSP,tenSP,maLoai,maTH,moTa,donGia,soLuong,Anh")] SanPham sanPham)
+        public ActionResult Edit([Bind(Include = "maSP,tenSP,maLoai,maTG,moTa,donGia,soLuong,Anh")] SanPham sanPham)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace ShopBanSach.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.maLoai = new SelectList(db.LoaiSP, "maLoai", "tenLoai", sanPham.maLoai);
-            ViewBag.maTH = new SelectList(db.ThuongHieu, "maTH", "tenTH", sanPham.maTH);
+            ViewBag.maTG = new SelectList(db.TacGia, "maTG", "tenTG", sanPham.maTG);
             return View(sanPham);
         }
 
@@ -157,9 +157,9 @@ namespace ShopBanSach.Areas.Admin.Controllers
 
             return View(listSp);
         }
-        public ViewResult ProductsbyTH(string id)
+        public ViewResult ProductsbyTG(string id)
         {
-            ThuongHieu th;
+            TacGia tg;
             SanPham sanPham = new SanPham();
             List<SanPham> listSp;
             if (id == null)
@@ -170,11 +170,11 @@ namespace ShopBanSach.Areas.Admin.Controllers
             }
             else
             {
-                th = thModel.get1TH(id);
-                listSp = spModel.getSPbyThuongHieu(id);
-                var tenTH = th.tenTH;
-                ViewBag.TH = th;
-                ViewBag.tenTH = tenTH;
+                tg = thModel.get1TH(id);
+                listSp = spModel.getSPbyTacGia(id);
+                var tenTG = tg.tenTG;
+                ViewBag.TG = tg;
+                ViewBag.tenTG = tenTG;
             }
             return View(listSp);
         }

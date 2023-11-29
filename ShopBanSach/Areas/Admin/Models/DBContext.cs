@@ -40,10 +40,9 @@ namespace ShopBanSach.Areas.Admin.Models
             con.Close();
         }
 
-
         public virtual DbSet<LoaiSP> LoaiSP { get; set; }
         public virtual DbSet<SanPham> SanPham { get; set; }
-        public virtual DbSet<ThuongHieu> ThuongHieu { get; set; }
+        public virtual DbSet<TacGia> TacGia { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -55,11 +54,6 @@ namespace ShopBanSach.Areas.Admin.Models
                 .Property(e => e.Anh)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<LoaiSP>()
-                .HasMany(e => e.SanPhams)
-                .WithRequired(e => e.LoaiSP)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<SanPham>()
                 .Property(e => e.maSP)
                 .IsUnicode(false);
@@ -69,21 +63,16 @@ namespace ShopBanSach.Areas.Admin.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<SanPham>()
-                .Property(e => e.maTH)
+                .Property(e => e.maTG)
                 .IsUnicode(false);
 
             modelBuilder.Entity<SanPham>()
                 .Property(e => e.Anh)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ThuongHieu>()
-                .Property(e => e.maTH)
+            modelBuilder.Entity<TacGia>()
+                .Property(e => e.maTG)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<ThuongHieu>()
-                .HasMany(e => e.SanPhams)
-                .WithRequired(e => e.ThuongHieu)
-                .WillCascadeOnDelete(false);
         }
     }
 }

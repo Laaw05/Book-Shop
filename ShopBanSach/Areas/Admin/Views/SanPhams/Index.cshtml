@@ -17,6 +17,7 @@
             <div class="card-header py-3">
                 <h4 class="m-0 font-weight-bold text-primary">Danh sách tất cả sản phẩm</h4>
                 <a class="float-lg-right btn btn-primary" href="/Admin/SanPhams/Create">Thêm sản phẩm</a>
+                <a class="float-lg-right mr-md-2 btn btn-primary" href="~/Home/Index">Quay lại</a>
 
             </div>
             <div class="card-body">
@@ -25,22 +26,22 @@
                         <thead>
                             <tr style="Background: #456bd9">
                                 <th style="color:white">
-                                    @Html.DisplayNameFor(model => model.tenSP)
+                                    Tên sản phẩm
                                 </th>
                                 <th style="color:white">
-                                    @Html.DisplayNameFor(model => model.ThuongHieu.tenTH)
+                                    Tên tác giả
                                 </th>
                                 <th style="color:white">
-                                    @Html.DisplayNameFor(model => model.moTa)
+                                    Mô tả
                                 </th>
                                 <th style="color:white">
-                                    @Html.DisplayNameFor(model => model.donGia)
+                                    Đơn giá
                                 </th>
                                 <th style="color:white">
-                                    @Html.DisplayNameFor(model => model.soLuong)
+                                    Số lượng
                                 </th>
                                 <th style="color:white">
-                                    @Html.DisplayNameFor(model => model.Anh)
+                                    Ảnh
                                 </th>
                                 <th style="color:white">Tuỳ chọn</th>
                             </tr>
@@ -48,22 +49,22 @@
                         <tfoot>
                             <tr>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.tenSP)
+                                    Tên sản phẩm
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.ThuongHieu.tenTH)
+                                    Tên tác giả
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.moTa)
+                                    Mô tả
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.donGia)
+                                    Đơn giá
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.soLuong)
+                                    Số lượng
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Anh)
+                                    Ảnh
                                 </th>
                                 <th></th>
                             </tr>
@@ -79,7 +80,7 @@
 
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.ThuongHieu.tenTH)
+                                        @Html.DisplayFor(modelItem => item.TacGia.tenTG)
                                     </td>
                                     <td class="col-sm-3">
                                         @{

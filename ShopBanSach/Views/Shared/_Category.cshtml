@@ -7,7 +7,7 @@
     SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["strConnect"].ConnectionString);
     SqlDataAdapter dalsp, daTH;
     dalsp = new SqlDataAdapter("Select * from LoaiSP", con);
-    daTH = new SqlDataAdapter("Select * from ThuongHieu", con);
+    daTH = new SqlDataAdapter("Select * from TacGia", con);
     DataTable dtlsp, dtTH;
     dtlsp = new DataTable();
     dtTH = new DataTable();
@@ -48,12 +48,12 @@
     <!-- Thuong hieu -->
     <div class="sidebar_section">
         <div class="sidebar_title">
-            <h5>Thương hiệu sản phẩm</h5>
+            <h5>Tác giả</h5>
         </div>
         <ul class="sidebar_categories">
             @for (int i = 0; i < dtTH.Rows.Count; i++)
             {
-                if (dtTH.Rows[i][1].ToString().Equals(ViewBag.tenTH))
+                if (dtTH.Rows[i][1].ToString().Equals(ViewBag.tenTG))
                 {
                     <li class="active"><a href="/Product/ProbyTH/@dtTH.Rows[i][0].ToString()"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>@dtTH.Rows[i][1].ToString()</a></li>
                 }

@@ -6,7 +6,7 @@
     SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DBContext"].ConnectionString);
     SqlDataAdapter dalsp, daTH;
     dalsp = new SqlDataAdapter("Select * from LoaiSP", con);
-    daTH = new SqlDataAdapter("Select * from ThuongHieu", con);
+    daTH = new SqlDataAdapter("Select * from TacGia", con);
     DataTable dtlsp, dtTH;
     dtlsp = new DataTable();
     dtTH = new DataTable();
@@ -88,21 +88,21 @@
                 </div>
             </li>
 
-            <!-- Nav Item - QLThuong Hieu -->
+            <!-- Nav Item - QLTac Gia -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                    aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="far fa-copyright"></i>
-                    <span>Thương hiệu</span>
+                    <span>Tác Giả</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Danh sách thương hiệu:</h6>
+                        <h6 class="collapse-header">Danh sách tác giả:</h6>
                         @{
                             for (int i = 0; i < dtTH.Rows.Count; i++)
                             {
-                                <a class="collapse-item" href="/Admin/SanPhams/ProductsbyTH/@dtTH.Rows[i][0].ToString()">@dtTH.Rows[i][1].ToString()</a>
+                                <a class="collapse-item" href="/Admin/SanPhams/ProductsbyTG/@dtTH.Rows[i][0].ToString()">@dtTH.Rows[i][1].ToString()</a>
                             }
                         }
 
@@ -117,7 +117,7 @@
             <hr class="sidebar-divider">
             <!-- Heading -->
             <div class="sidebar-heading">
-                Danh mục và thương hiệu
+                Danh mục và tác giả
             </div>
             <!-- Nav Item - QLDanhMuc -->
             <li class="nav-item">
@@ -127,11 +127,11 @@
                 </a>
             </li>
 
-            <!-- Nav Item - QLTH -->
+            <!-- Nav Item - QLTG -->
             <li class="nav-item">
-                <a class="nav-link" href="/Admin/ThuongHieux/Index">
+                <a class="nav-link" href="/Admin/TacGias/Index">
                     <i class="far fa-list-alt"></i>
-                    <span>Danh sách thương hiệu</span>
+                    <span>Danh sách tác giả</span>
                 </a>
             </li>
 
